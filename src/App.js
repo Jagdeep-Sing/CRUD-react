@@ -1,11 +1,11 @@
 import React from 'react';
 import SignUp from './form/signup'
-import BasicTable from "./table/table";
+import AllUsers from "./table/allUsers";
 function App() {
   return (
     <div>
       <SignUp />
-      <BasicTable />
+      <AllUsers />
     </div>
   );
 }

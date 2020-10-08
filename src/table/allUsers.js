@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -7,8 +7,9 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import { connect } from 'react-redux';
 
-const useStyles = makeStyles({
+const classes = makeStyles({
   table: {
     float: 'right',
     minWidth: 650,
@@ -27,10 +28,10 @@ const rows = [
   createData('Gingerbread', 356, 16.0, 49, 3.9),
 ];
 
-export default function BasicTable() {
-  const classes = useStyles();
-
+class AllUsers extends Component {
+  render() {
   return (
+    
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
@@ -59,3 +60,12 @@ export default function BasicTable() {
     </TableContainer>
   );
 }
+}
+
+const mapStateToProps = (state) => {
+  return {
+      users: state
+  }
+}
+
+export default connect(mapStateToProps)(AllUsers);
