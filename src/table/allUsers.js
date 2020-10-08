@@ -8,7 +8,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { connect } from 'react-redux';
-
+import { valueSetter } from '../form/signup'
 const classes = makeStyles({
   table: {
     float: 'right',
@@ -41,7 +41,7 @@ class AllUsers extends Component {
               <TableCell align="right">{user.lastName}</TableCell>
               <TableCell align="right">{user.password}</TableCell>
               <TableCell align="right">
-                <button onClick={()=>this.props.dispatch({type:'EDIT_USER',id:user.id})}>
+                <button onClick={() => valueSetter(user.firstName, user.lastName, user.password)}>
                   Edit
                 </button>
               </TableCell>

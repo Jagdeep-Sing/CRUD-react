@@ -27,6 +27,12 @@ function Copyright() {
   );
 }
 
+export function valueSetter(fname, lname, email) {
+  //alert(fname + lname + email)
+  document.getElementById('firstname').value = fname;
+  document.getElementById('lastname').value = lname;
+  document.getElementById('email').value = email;
+}
 const classes = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
@@ -66,7 +72,7 @@ class SignUp extends Component  {
       data});
     this.getFirstName.value = '';
     this.getLastName.value = '';
-    this.getPassword.value = '';
+    this.getPassword.value = '';   
   }
 render() {
   return (
@@ -84,10 +90,13 @@ render() {
             <Grid item xs={12} sm={6}>
               <TextField
                 variant="outlined"
-                label="FIrset name"
+                label="First name"
+                name="username"
+                id="firstname"
                 required
                 fullWidth
                 autoFocus
+                value={this.getFirstName}
                 inputRef={(input)=>this.getFirstName = input} 
               />
             </Grid>
@@ -96,20 +105,19 @@ render() {
                 variant="outlined"
                 required
                 fullWidth
-                id="lastName"
+                id="lastname"
                 label="Last Name"
                 name="lastName"
                 autoComplete="lname"
                 inputRef={(input)=>this.getLastName = input} 
               />
-            </Grid>
+          </Grid>
             <Grid item xs={12}>
               <TextField
                 variant="outlined"
                 required
                 fullWidth
                 name="email"
-                label="email"
                 type="email"
                 id="email"
                 inputRef={(input)=>this.getPassword = input} 
