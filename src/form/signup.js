@@ -84,6 +84,7 @@ render() {
             <Grid item xs={12} sm={6}>
               <TextField
                 variant="outlined"
+                label="FIrset name"
                 required
                 fullWidth
                 autoFocus
@@ -108,6 +109,7 @@ render() {
                 required
                 fullWidth
                 name="email"
+                label="email"
                 type="email"
                 id="email"
                 inputRef={(input)=>this.getPassword = input} 
