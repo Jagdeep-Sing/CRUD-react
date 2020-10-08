@@ -58,10 +58,11 @@ class SignUp extends Component  {
       id: new Date(),
       firstName,
       lastName,
-      password
+      password,
+      editing:false
     }
     this.props.dispatch({
-      type:'ADD_POST',
+      type:'ADD_USER',
       data});
     this.getFirstName.value = '';
     this.getLastName.value = '';
@@ -106,11 +107,9 @@ render() {
                 variant="outlined"
                 required
                 fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                autoComplete="current-password"
+                name="email"
+                type="email"
+                id="email"
                 inputRef={(input)=>this.getPassword = input} 
               />
             </Grid>

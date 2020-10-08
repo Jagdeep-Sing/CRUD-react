@@ -27,6 +27,9 @@ class AllUsers extends Component {
             <TableCell>First Name</TableCell>
             <TableCell align="right">Last Name</TableCell>
             <TableCell align="right">Password</TableCell>
+            <TableCell align="right">Update</TableCell>
+            <TableCell align="right">Remove</TableCell>
+
           </TableRow>
         </TableHead>
         <TableBody>
@@ -37,6 +40,17 @@ class AllUsers extends Component {
               </TableCell>
               <TableCell align="right">{user.lastName}</TableCell>
               <TableCell align="right">{user.password}</TableCell>
+              <TableCell align="right">
+                <button onClick={()=>this.props.dispatch({type:'EDIT_USER',id:user.id})}>
+                  Edit
+                </button>
+              </TableCell>
+
+              <TableCell align="right">
+              <button onClick={()=>this.props.dispatch({type:'DELETE_USER',id:user.id})}>
+                  Delete
+              </button>
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
