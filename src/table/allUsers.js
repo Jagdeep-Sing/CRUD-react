@@ -26,9 +26,13 @@ class AllUsers extends Component {
           <TableRow>
             <TableCell>First Name</TableCell>
             <TableCell align="right">Last Name</TableCell>
-            <TableCell align="right">Password</TableCell>
-            <TableCell align="right">Update</TableCell>
-            <TableCell align="right">Remove</TableCell>
+            <TableCell align="right">Email</TableCell>
+            <TableCell align="right">Age</TableCell>
+            <TableCell align="right">About</TableCell>
+            <TableCell align="right">Accepted</TableCell>
+            <TableCell align="right">EDIT</TableCell>
+            <TableCell align="right">DELETE</TableCell>
+
 
           </TableRow>
         </TableHead>
@@ -40,8 +44,12 @@ class AllUsers extends Component {
               </TableCell>
               <TableCell align="right">{user.lastName}</TableCell>
               <TableCell align="right">{user.password}</TableCell>
+              <TableCell align="right">{user.age}</TableCell>
+              <TableCell align="right">{user.about}</TableCell>
+              <TableCell align="right">{user.accepted}</TableCell>
+
               <TableCell align="right">
-                <button onClick={() => valueSetter(user.firstName, user.lastName, user.password)}>
+                <button onClick={() => valueSetter(user.firstName, user.lastName, user.password, user.age, user.about, user.accepted)}>
                   Edit
                 </button>
               </TableCell>

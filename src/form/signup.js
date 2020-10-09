@@ -27,11 +27,15 @@ function Copyright() {
   );
 }
 
-export function valueSetter(fname, lname, email) {
+export function valueSetter(fname, lname, email, age, about, accept) {
   //alert(fname + lname + email)
   document.getElementById('firstname').value = fname;
   document.getElementById('lastname').value = lname;
   document.getElementById('email').value = email;
+  document.getElementById('age').value = age;
+  document.getElementById('about').value = about;
+  document.getElementById('accept').checked = accept;
+
 }
 const classes = makeStyles((theme) => ({
   paper: {
@@ -60,11 +64,18 @@ class SignUp extends Component  {
     const firstName = this.getFirstName.value;
     const lastName =  this.getLastName.value;
     const password = this.getPassword.value;
+    const age = this.getAge.value;
+    const about = this.getAbout.value;
+    const accepted = this.getAccept.value;
+
     const data = {
       id: new Date(),
       firstName,
       lastName,
       password,
+      age,
+      about,
+      accepted,
       editing:false
     }
     this.props.dispatch({
@@ -73,6 +84,9 @@ class SignUp extends Component  {
     this.getFirstName.value = '';
     this.getLastName.value = '';
     this.getPassword.value = '';   
+    this.getAge.value = '';
+    this.getAbout.value = '';
+    this.getAccept = '';
   }
 render() {
   return (
@@ -123,9 +137,43 @@ render() {
                 inputRef={(input)=>this.getPassword = input} 
               />
             </Grid>
+
+
+            <Grid item xs={12}>
+            <TextField 
+              type="number"
+              variant="outlined"
+              required
+              fullWidth
+              name="age"
+              id="age"
+              inputRef={(input)=> this.getAge = input}
+              InputProps={{
+                  inputProps: { 
+                      max: 100, min: 10 
+                  }
+              }}
+              label="Age"
+              />
+            </Grid>
+            <Grid item xs={12}>
+            <TextField
+              id="about"
+              label="About you"
+              multiline
+              rows={10}
+              variant="outlined"
+              inputRef={(input)=> this.getAbout = input}
+            />
+            </Grid>
             <Grid item xs={12}>
               <FormControlLabel
-                control={<Checkbox value="allowExtraEmails" color="primary" />}
+                control={<Checkbox 
+                value="allowExtraEmails" 
+                color="primary"
+                id="accept"
+                inputRef={(input)=> this.getAccept = input}
+                 />}
                 label="I want to receive inspiration, marketing promotions and updates via email."
               />
             </Grid>
