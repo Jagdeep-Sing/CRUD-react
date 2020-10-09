@@ -134,6 +134,7 @@ render() {
                 name="email"
                 type="email"
                 id="email"
+                label="Email"
                 inputRef={(input)=>this.getPassword = input} 
               />
             </Grid>
